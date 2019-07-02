@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Volga</title>
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" media="screen" href="detail-page.css">
+    </head>
+    <body>
+        <main>
+            <section id="content">
+                <p>Nataliia's Museum App</p>
+                <h1>Volga, Arkhip Kuindzhi, 1890-1895</h1>
+                <img class="artObject" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Kuindzhi_Volga_1890_1895.jpg/800px-Kuindzhi_Volga_1890_1895.jpg">
+            </section>
+                <section id="comments">
+                    <h2>Comments</h2>
+                <section class="comment">
+                    <h3>Emma said:</h3>
+                    <p>"This is definitely one of my favorites!"</p>
+                </section>
+                </section>
+                <form onsubmit="submitComment(); return false">
+                        <div class="formSection">
+                          <label for="name">Name:</label>
+                          <input type="text" id="name">
+                        </div>
+                        <div class="formSection">
+                          <label for="msg">Message:</label>
+                          <textarea id="msg"></textarea>
+                        </div>
+                        <div class="button">
+                          <button type="default">Post your comment</button>
+                        </div>
+                      </form>
+        </main>
+        <footer>
+            <p>Made with ❤ at Codaisseur</p>
+        </footer>
+    </body>
+</html>
