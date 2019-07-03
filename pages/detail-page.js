@@ -13,5 +13,8 @@ function submitComment() {
     h3.innerHTML = `${name} said:`;
     p.innerHTML = msg;
     comment.classList = 'comment';
-    console.log(comment, h3, p);
+    comment.appendChild(h3);
+    comment.appendChild(p);
+    console.log(comment);
 }
+
