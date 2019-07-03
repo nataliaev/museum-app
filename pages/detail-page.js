@@ -15,6 +15,12 @@ function submitComment() {
     comment.classList = 'comment';
     comment.appendChild(h3);
     comment.appendChild(p);
-    console.log(comment);
+    //display elements
+    commentSection = document.getElementById('comments');
+    commentSection.appendChild(comment);
+    console.log(commentSection);
+    // reset values
+    inputField.value = null;
+    inputMessage.value = null;
 }
 
