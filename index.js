@@ -326,20 +326,46 @@ const data = {
 
 const paintings = data.artObjects;
 
-for (let i = 0; i < paintings.length; i++) {
-  let currentPainting = paintings[i];
-  displayPainting(currentPainting);
+const obj = {
+  "rembrand" : "Rembrandt van Rijn",
+  "potter" : "Paulus Potter", 
+  "ekels" : "Jan Ekels (II)", 
+  "vlucht" : "Gerrit van Vucht", 
+  "panelen" : "Meester van de Heilige Elisabeth-Panelen", 
+  "velde" : "Esaias van de Velde"
+}
+
+submitChoise()
+function submitChoise() {
+  let gal = document.getElementById("gallery")
+  gal.innerHTML = null;
+
+
+  for (let i = 0; i < paintings.length; i++) {
+    let painting = paintings[i];
+    let longTitleArray = painting.longTitle.split(' ');
+    let year = parseInt(longTitleArray[longTitleArray.length - 1]);
+    for (let j in obj) {
+      if (document.getElementById(j).checked == true && painting.principalOrFirstMaker == obj[j] && document.getElementById("option-before").checked == true && year < 1650) {
+        displayPainting(painting, year);
+        break;
+      } else if (document.getElementById(j).checked == true && painting.principalOrFirstMaker == obj[j] && document.getElementById("option-after").checked == true && year >= 1650) {
+        displayPainting(painting, year);
+        break;
+      } else if (document.getElementById(j).checked == true && painting.principalOrFirstMaker == obj[j] && document.getElementById("option-before").checked == false && document.getElementById("option-after").checked == false) {
+        displayPainting(painting, year); 
+        break;
+      }
+    } 
+  }
 }
 
 // create structure
-function displayPainting(painting) {
+function displayPainting(painting, year) {
   const regEx = /Honthorst/;
-  let longTitleArray = painting.longTitle.split(' ');
-  let year = parseInt(longTitleArray[longTitleArray.length - 1]);
   if (painting.webImage.width < 500 || regEx.test(painting.principalOrFirstMaker) || year > 1800) {
-    return
+    return null;
   }
-
   let aElement = document.createElement('a');
   let imgElement = document.createElement('img');
   aElement.href = "./pages/detail-page.html";
@@ -349,4 +375,14 @@ function displayPainting(painting) {
   aElement.appendChild(imgElement);
   let sectionElement = document.getElementById("gallery");
   sectionElement.appendChild(aElement);
+}
+
+function anyCheckbox()
+{
+    let inputElements = document.getElementsByTagName("input");
+    for (let i = 0; i < inputElements.length; i++)
+        if (inputElements[i].class == "painter")
+            if (inputElements[i].checked)
+                return true;
+    return false;
 }

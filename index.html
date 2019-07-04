@@ -8,6 +8,49 @@
     <body>
         <main>
             <h1>Nataliia's Museum App</h1>
+            <form onsubmit="submitChoise(); return false">
+                <fieldset>
+                    <legend>Period of creation:</legend>
+                    <div>
+                        <label for="option-before">Before 1650 year</label>
+                        <input type="checkbox" id="option-before" name="option-before">
+                    </div>
+                    <div>
+                        <label for="option-after">After 1650 year</label>
+                        <input type="checkbox" id="option-after" name="option-after">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Painter:</legend>
+                    <div>
+                        <label for="rembrand">Rembrandt van Rijn</label>
+                        <input type="checkbox" class="painter" id="rembrand" name="rembrand" checked>
+                    </div>
+                    <div>
+                        <label for="potter">Paulus Potter</label>
+                        <input type="checkbox" class="painter" id="potter" name="potter" checked>
+                    </div>
+                    <div>
+                        <label for="ekels">Jan Ekels (II)</label>
+                        <input type="checkbox" class="painter" id="ekels" name="ekels" checked>
+                    </div>
+                    <div>
+                        <label for="vlucht">Gerrit van Vucht</label>
+                        <input type="checkbox" class="painter" id="vlucht" name="vlucht" checked>
+                    </div>
+                    <div>
+                        <label for="panelen">Meester van de Heilige Elisabeth-Panelen</label>
+                        <input type="checkbox" class="painter" id="panelen" name="panelen" checked>
+                    </div>
+                    <div>
+                        <label for="velde">Esaias van de Velde</label>
+                        <input type="checkbox" class="painter" id="velde" name="velde" checked>
+                    </div>
+                </fieldset>
+                <div class="button">
+                    <button type="default">Sort paintings</button>
+                </div>
+            </form>
             <section id="gallery">
                 <h2>Gallery</h2>      
             </section>
