@@ -340,14 +340,12 @@ function displayPainting(painting) {
     return
   }
 
-  let altText = painting.title;
-  let urlName = painting.webImage.url;
   let aElement = document.createElement('a');
   let imgElement = document.createElement('img');
   aElement.href = "./pages/detail-page.html";
-  imgElement.alt = altText;
+  imgElement.alt = painting.title;
   imgElement.classList = "artObject";
-  imgElement.src = urlName;
+  imgElement.src = painting.webImage.url;
   aElement.appendChild(imgElement);
   let sectionElement = document.getElementById("gallery");
   sectionElement.appendChild(aElement);
