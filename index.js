@@ -333,6 +333,13 @@ for (let i = 0; i < paintings.length; i++) {
 
 // create structure
 function displayPainting(painting) {
+  const regEx = /Honthorst/;
+  let longTitleArray = painting.longTitle.split(' ');
+  let year = parseInt(longTitleArray[longTitleArray.length - 1]);
+  if (painting.webImage.width < 500 || regEx.test(painting.principalOrFirstMaker) || year > 1800) {
+    return
+  }
+
   let altText = painting.title;
   let urlName = painting.webImage.url;
   let aElement = document.createElement('a');
